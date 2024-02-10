@@ -85,7 +85,7 @@ void EmporiaVueComponent::add_on_update_callback(std::function<void()> &&callbac
 
 void PhaseConfig::update_from_reading(const SensorReading &sensor_reading) {
   if (this->voltage_sensor_) {
-    float calibrated_voltage = sensor_reading.voltage[this->input_wire_] * this->calibration_;
+    float calibrated_voltage = sensor_reading.voltage[PhaseInputWire::BLACK] * this->calibration_;
     this->voltage_sensor_->publish_state(calibrated_voltage);
   }
 
